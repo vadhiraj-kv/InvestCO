@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './Login/LoginScreen';
 import ForgotPasswordScreen from './ForgotPassword/ForgotPassword'; // Import ForgotPasswordScreen
 import SignUp from './Signup/Signup';
+import InvestmentSurvey from './Question/UserQuestion.tsx';
+import InvestmentCalculator from './Calculator/InvestmentCalculator.tsx'
 
 // Create Stack Navigator
 const Stack = createStackNavigator();
@@ -39,6 +41,15 @@ function App() {
             component={SignUp}
             options={{ title: 'Signup' }}
           />
+           <Stack.Screen
+            name="InvestmentSurvey"
+            component={InvestmentSurvey}
+            options={{ title: 'Investment Survey' }}
+          />
+          <Stack.Screen 
+          name="InvestmentCalculator"
+           component={InvestmentCalculator} />
+
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

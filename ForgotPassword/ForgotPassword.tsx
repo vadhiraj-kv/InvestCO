@@ -45,7 +45,7 @@ export default function ForgotPasswordScreen({ navigation }: { navigation: any }
           <Text style={styles.title}>
             Forgot <Text style={{ color: '#7F00FF' }}>Password?</Text>
           </Text>
-          <Text style={styles.subtitle}>
+          <Text style={[styles.subtitle,{textAlign: 'center'}]}>
             Enter your username and email to reset your password.
           </Text>
         </View>
