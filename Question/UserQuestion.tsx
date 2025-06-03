@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-import styles from './UserQuestion'
+import styles from './UserQuestionStyles'
 import {
   SafeAreaView,
   View,
@@ -12,8 +12,9 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { useNavigation } from '@react-navigation/native';
 
-export default function InvestmentSurvey() {
-  const navigation = useNavigation();
+export default function InvestmentSurvey({ navigation, route }) {
+  // Get user data from route params
+  const userData = route.params?.userData || null;
 
   const [answers, setAnswers] = useState({
     risk: '',
@@ -33,7 +34,15 @@ export default function InvestmentSurvey() {
       Alert.alert('Incomplete', 'Please answer all the questions before submitting.');
       return;
     }
-    navigation.navigate('InvestmentCalculator');
+    
+    // Pass both the survey answers and user data to the calculator
+    navigation.navigate('InvestmentCalculator', {
+      risk: answers.risk,
+      goal: answers.goal,
+      investmentDuration: answers.investmentDuration,
+      experience: answers.experience,
+      userData: userData
+    });
   };
 
   return (

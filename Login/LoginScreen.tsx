@@ -7,15 +7,62 @@ import {
   Text,
   TouchableOpacity,
   TextInput,
+  Alert,
+  ActivityIndicator,
 } from 'react-native';
-import {Alert} from 'react-native'
-import styles from './LogicScreen'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import axios from 'axios';
+import styles from './LogicScreen';
+
+// Update API URL to match your backend
+const API_URL = 'http://10.0.2.2:3000/api'; // Use 10.0.2.2 instead of localhost for Android emulator
+
 export default function Login({ navigation }) {
   const [form, setForm] = useState({
     username: '',
     password: '',
   });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleLogin = async () => {
+    const { username, password } = form;
+
+    // Validate form fields
+    if (!username || !password) {
+      Alert.alert('Error', 'Username and password are required.');
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Make API call to backend
+      const response = await axios.post(`${API_URL}/users/login`, {
+        username,
+        password,
+      });
+      
+      setIsLoading(false);
+      console.log('Login successful:', response.data);
+      
+      // Navigate to Investment Survey first instead of Dashboard
+      navigation.navigate('InvestmentSurvey', {
+        userData: response.data.user
+      });
+      
+    } catch (error) {
+      setIsLoading(false);
+      console.error('Login error:', error);
+      
+      if (error.response) {
+        Alert.alert('Error', error.response.data.error || 'Login failed');
+      } else if (error.request) {
+        Alert.alert('Error', 'No response from server. Please check your connection.');
+      } else {
+        Alert.alert('Error', 'An unexpected error occurred');
+      }
+    }
+  };
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#e8ecf4' }}>
@@ -65,9 +112,16 @@ export default function Login({ navigation }) {
             />
           </View>
           <View style={styles.formAction}>
-            <TouchableOpacity onPress={() => navigation.navigate('InvestmentSurvey')}>
-              <View style={styles.btn}>
-                <Text style={styles.btnText}>Sign in</Text>
+            <TouchableOpacity 
+              onPress={handleLogin} 
+              disabled={isLoading}
+            >
+              <View style={[styles.btn, isLoading && { opacity: 0.7 }]}>
+                {isLoading ? (
+                  <ActivityIndicator size="small" color="#ffffff" />
+                ) : (
+                  <Text style={styles.btnText}>Sign in</Text>
+                )}
               </View>
             </TouchableOpacity>
           </View>

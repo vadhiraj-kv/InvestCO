@@ -8,13 +8,38 @@ import {
   ScrollView,
   Alert
 } from 'react-native';
-import styles from './InvestmentCalculator'; // import your styles here
+import { useNavigation, useRoute } from '@react-navigation/native';
+import styles from './InvestmentCalculatorStyles';
 
-export default function InvestmentCalculator() {
-  const [amountType, setAmountType] = useState<'SIP' | 'One-time' | ''>('');
+export default function InvestmentCalculator({ navigation, route }) {
+  // Get user data and survey results from route params
+  const userData = route.params?.userData || null;
+  const surveyRiskProfile = route.params?.risk || 'Medium';
+  
+  // Map survey risk profile to our risk levels
+  const mapRiskProfile = (surveyRisk) => {
+    switch(surveyRisk) {
+      case 'Conservative':
+      case 'Very Conservative':
+        return 'Low';
+      case 'Moderate':
+      case 'Medium':
+        return 'Moderate';
+      case 'Aggressive':
+      case 'Very Aggressive':
+        return 'High';
+      default:
+        return 'Moderate';
+    }
+  };
+
+  const [amountType, setAmountType] = useState('SIP');
   const [investmentAmount, setInvestmentAmount] = useState('');
-  const [duration, setDuration] = useState<number | null>(null);
+  const [duration, setDuration] = useState(1);
   const [total, setTotal] = useState<number | null>(null);
+  
+  // Use risk profile from survey
+  const riskProfile = mapRiskProfile(surveyRiskProfile);
 
   const calculateInvestment = () => {
     const amount = parseFloat(investmentAmount);
@@ -23,14 +48,23 @@ export default function InvestmentCalculator() {
       return;
     }
 
-    if (amountType === 'SIP' && duration) {
-      const totalInvestment = amount * duration * 12;
-      setTotal(totalInvestment);
-    } else if (amountType === 'One-time') {
-      setTotal(amount);
+    let calculatedTotal = 0;
+    if (amountType === 'SIP') {
+      calculatedTotal = amount * duration * 12;
     } else {
-      Alert.alert('Please complete all fields');
+      calculatedTotal = amount;
     }
+    
+    setTotal(calculatedTotal);
+    
+    // Navigate to Dashboard with investment details AND user data
+    navigation.navigate('Dashboard', {
+      amount: calculatedTotal,
+      investmentType: amountType,
+      duration: duration,
+      riskProfile: riskProfile,
+      userData: userData
+    });
   };
 
   return (
@@ -61,8 +95,8 @@ export default function InvestmentCalculator() {
                   amountType === type && styles.selectedOption,
                 ]}
                 onPress={() => {
-                  setAmountType(type as 'SIP' | 'One-time');
-                  if (type === 'One-time') setDuration(null);
+                  setAmountType(type);
+                  if (type === 'One-time') setDuration(1);
                   setTotal(null);
                 }}>
                 <Text style={[styles.optionText, amountType === type && { color: 'white' }]}>{type}</Text>

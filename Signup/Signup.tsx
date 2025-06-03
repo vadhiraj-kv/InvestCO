@@ -7,9 +7,14 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
+import axios from 'axios';
 
 import styles from '../Login/LogicScreen';
+
+// Update API URL to match your backend
+const API_URL = 'http://10.0.2.2:3000/api'; // Use 10.0.2.2 instead of localhost for Android emulator
 
 export default function SignUp({ navigation }: { navigation: any }) {
   const [form, setForm] = useState({
@@ -23,17 +28,19 @@ export default function SignUp({ navigation }: { navigation: any }) {
 
   const [isAgreed, setIsAgreed] = useState(false);
   const [gender, setGender] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const isValidEmail = (email: string) => /\S+@\S+\.\S+/.test(email);
 
-  const validateUsername = async (username: string) => {
-    const existingUsernames = ['user1', 'testuser']; // Replace with your actual validation logic
-    return !existingUsernames.includes(username);
+  const isValidPassword = (password: string) => {
+    // Check if password is exactly 8 digits (numbers only)
+    return /^\d{8}$/.test(password);
   };
 
   const handleSignUp = async () => {
     const { firstName, lastName, phone, email, username, password } = form;
 
+    // Validate form fields
     if (!firstName || !lastName || !phone || !email || !username || !password) {
       Alert.alert('Error', 'All fields are required.');
       return;
@@ -44,19 +51,58 @@ export default function SignUp({ navigation }: { navigation: any }) {
       return;
     }
 
+    if (!isValidPassword(password)) {
+      Alert.alert('Invalid Password', 'Password must be exactly 8 digits (0-9).');
+      return;
+    }
+
+    if (!gender) {
+      Alert.alert('Error', 'Please select your gender.');
+      return;
+    }
+
     if (!isAgreed) {
       Alert.alert('Error', 'You must agree to the terms and conditions.');
       return;
     }
 
-    const isUsernameValid = await validateUsername(username);
-    if (!isUsernameValid) {
-      Alert.alert('Error', 'Username is already taken.');
-      return;
-    }
+    setIsLoading(true);
 
-    Alert.alert('Success', `Welcome, ${firstName}! Your account has been created.`);
-    navigation.navigate('Login');
+    try {
+      // Make API call to backend
+      const response = await axios.post(`${API_URL}/users/register`, {
+        firstName,
+        lastName,
+        phone,
+        email,
+        username,
+        password,
+        gender
+      });
+      
+      setIsLoading(false);
+      console.log('Registration successful:', response.data);
+      Alert.alert(
+        'Success', 
+        'Your account has been created successfully!',
+        [{ text: 'OK', onPress: () => navigation.navigate('Login') }]
+      );
+    } catch (error: any) {
+      setIsLoading(false);
+      console.error('Registration error:', error);
+      
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        // that falls out of the range of 2xx
+        Alert.alert('Error', error.response.data.error || 'Registration failed');
+      } else if (error.request) {
+        // The request was made but no response was received
+        Alert.alert('Error', 'No response from server. Please check your connection.');
+      } else {
+        // Something happened in setting up the request
+        Alert.alert('Error', 'An unexpected error occurred');
+      }
+    }
   };
 
   return (
@@ -167,6 +213,41 @@ export default function SignUp({ navigation }: { navigation: any }) {
                   </View>
                   <Text>Female</Text>
                 </TouchableOpacity>
+
+                 {/* Others Radio Button */}
+                 <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                  }}
+                  onPress={() => setGender('Others')}
+                >
+                  <View
+                    style={{
+                      width: 24,
+                      height: 24,
+                      borderRadius: 12,
+                      borderWidth: 2,
+                      borderColor: '#7F00FF',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginRight: 10,
+                      marginLeft: 10
+                    }}
+                  >
+                    {gender === 'Others' && (
+                      <View
+                        style={{
+                          width: 12,
+                          height: 12,
+                          borderRadius: 6,
+                          backgroundColor: '#7F00FF',
+                        }}
+                      />
+                    )}
+                  </View>
+                  <Text>Others</Text>
+                </TouchableOpacity>
               </View>
             </View>
 
@@ -215,15 +296,24 @@ export default function SignUp({ navigation }: { navigation: any }) {
               <Text style={styles.inputLabel}>Password</Text>
               <TextInput
                 secureTextEntry
-                onChangeText={(text) => setForm({ ...form, password: text })}
-                placeholder="Enter your password"
+                keyboardType="numeric"
+                maxLength={8}
+                onChangeText={(text) => {
+                  // Only allow digits
+                  const numericText = text.replace(/[^0-9]/g, '');
+                  setForm({ ...form, password: numericText });
+                }}
+                placeholder="Enter 8-digit password"
                 placeholderTextColor="#6b7280"
                 style={styles.inputControl}
                 value={form.password}
               />
+              <Text style={{ fontSize: 12, color: '#666', marginTop: 4 }}>
+                Password must be exactly 8 digits (0-9)
+              </Text>
             </View>
 
-           
+
 
             {/* Agreement Checkbox */}
             <View style={styles.input}>
@@ -269,7 +359,10 @@ export default function SignUp({ navigation }: { navigation: any }) {
             <View style={styles.formAction}>
               <TouchableOpacity onPress={handleSignUp}>
                 <View style={styles.btn}>
-                  <Text style={styles.btnText}>Sign Up</Text>
+                  <Text style={styles.btnText}>
+                    {isLoading ? 'Creating Account...' : 'Sign Up'}
+                  </Text>
+                  {isLoading && <ActivityIndicator size="small" color="#ffffff" />}
                 </View>
               </TouchableOpacity>
             </View>
