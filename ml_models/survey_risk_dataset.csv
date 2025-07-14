@@ -1,0 +1,501 @@
+risk,goal,investmentDuration,experience,risk_level
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Passive Income,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+High,Short-Term Gains,Short-term (1-3 years),Beginner,Moderate
+Low,Retirement,Long-term (7+ years),Advanced,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Retirement,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Moderate
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Advanced,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Medium,Passive Income,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Retirement,Medium-term (3-7 years),Advanced,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Short-term (1-3 years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+High,Retirement,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Beginner,Low
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Medium,Passive Income,Short-term (1-3 years),Advanced,Moderate
+Low,Passive Income,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+High,Wealth Growth,Short-term (1-3 years),Advanced,High
+Low,Wealth Growth,Medium-term (3-7 years),Advanced,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Intermediate,Low
+High,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+High,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Advanced,Low
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Retirement,Short-term (1-3 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+High,Retirement,Medium-term (3-7 years),Intermediate,High
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+High,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+High,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Passive Income,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Retirement,Short-term (1-3 years),Advanced,Moderate
+Medium,Retirement,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Retirement,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Intermediate,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Short-term (1-3 years),Intermediate,High
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Medium,Retirement,Long-term (7+ years),Advanced,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+High,Retirement,Medium-term (3-7 years),Intermediate,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Wealth Growth,Short-term (1-3 years),Beginner,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Moderate
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Passive Income,Medium-term (3-7 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Intermediate,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Low,Retirement,Long-term (7+ years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Passive Income,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Passive Income,Medium-term (3-7 years),Advanced,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Advanced,Moderate
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Advanced,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Medium-term (3-7 years),Advanced,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Low,Wealth Growth,Short-term (1-3 years),Advanced,Low
+High,Wealth Growth,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+High,Retirement,Medium-term (3-7 years),Intermediate,High
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Advanced,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Low,Retirement,Long-term (7+ years),Advanced,Low
+Low,Short-Term Gains,Short-term (1-3 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+High,Short-Term Gains,Short-term (1-3 years),Beginner,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Passive Income,Medium-term (3-7 years),Advanced,High
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Beginner,Moderate
+High,Retirement,Medium-term (3-7 years),Intermediate,High
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Retirement,Long-term (7+ years),Beginner,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Medium,Retirement,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Short-term (1-3 years),Beginner,Moderate
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Beginner,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Medium,Passive Income,Medium-term (3-7 years),Advanced,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Passive Income,Medium-term (3-7 years),Intermediate,Low
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Advanced,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Short-Term Gains,Short-term (1-3 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Advanced,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Passive Income,Medium-term (3-7 years),Intermediate,Low
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+High,Retirement,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Retirement,Long-term (7+ years),Advanced,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Moderate
+High,Passive Income,Medium-term (3-7 years),Beginner,Low
+Low,Passive Income,Medium-term (3-7 years),Beginner,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Beginner,Low
+High,Retirement,Long-term (7+ years),Intermediate,High
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,Moderate
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+High,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Low,Passive Income,Short-term (1-3 years),Beginner,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Passive Income,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Passive Income,Short-term (1-3 years),Intermediate,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Wealth Growth,Medium-term (3-7 years),Intermediate,Low
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+High,Wealth Growth,Long-term (7+ years),Intermediate,High
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+High,Passive Income,Medium-term (3-7 years),Intermediate,High
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Advanced,Moderate
+Medium,Passive Income,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Passive Income,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Medium-term (3-7 years),Advanced,Moderate
+Low,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Retirement,Medium-term (3-7 years),Advanced,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Low,Passive Income,Long-term (7+ years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+High,Retirement,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Advanced,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+High,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Low,Passive Income,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Passive Income,Medium-term (3-7 years),Beginner,Low
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Medium-term (3-7 years),Intermediate,Low
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Short-Term Gains,Short-term (1-3 years),Advanced,Moderate
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Long-term (7+ years),Beginner,Low
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+High,Retirement,Medium-term (3-7 years),Intermediate,High
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Retirement,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Advanced,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Medium,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Intermediate,Moderate
+High,Wealth Growth,Short-term (1-3 years),Intermediate,High
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Medium-term (3-7 years),Advanced,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Low,Passive Income,Long-term (7+ years),Intermediate,Low
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Beginner,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Intermediate,Low
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Low,Passive Income,Medium-term (3-7 years),Advanced,Low
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Short-term (1-3 years),Intermediate,High
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Retirement,Medium-term (3-7 years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Intermediate,High
+High,Wealth Growth,Long-term (7+ years),Beginner,High
+Low,Retirement,Short-term (1-3 years),Intermediate,Low
+Medium,Short-Term Gains,Short-term (1-3 years),Intermediate,Moderate
+Medium,Wealth Growth,Short-term (1-3 years),Beginner,Moderate
+Medium,Passive Income,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+Medium,Passive Income,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Low,Retirement,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Short-term (1-3 years),Beginner,Moderate
+Low,Wealth Growth,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Medium,Wealth Growth,Short-term (1-3 years),Advanced,Moderate
+High,Short-Term Gains,Short-term (1-3 years),Advanced,High
+Low,Short-Term Gains,Short-term (1-3 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+Medium,Wealth Growth,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low
+Medium,Wealth Growth,Short-term (1-3 years),Intermediate,Moderate
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Medium,Wealth Growth,Medium-term (3-7 years),Beginner,Moderate
+Medium,Wealth Growth,Medium-term (3-7 years),Intermediate,Moderate
+Medium,Retirement,Long-term (7+ years),Intermediate,Moderate
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Low,Wealth Growth,Medium-term (3-7 years),Beginner,Low
+Low,Retirement,Medium-term (3-7 years),Beginner,Low
+High,Passive Income,Medium-term (3-7 years),Intermediate,High
+Low,Wealth Growth,Long-term (7+ years),Beginner,Low
+High,Wealth Growth,Long-term (7+ years),Advanced,High
+Low,Passive Income,Short-term (1-3 years),Beginner,Low
+High,Wealth Growth,Medium-term (3-7 years),Advanced,High
+Medium,Retirement,Long-term (7+ years),Beginner,Moderate
+Low,Retirement,Long-term (7+ years),Intermediate,Low

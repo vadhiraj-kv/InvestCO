@@ -42,6 +42,8 @@ interface PortfolioSectionProps {
     username?: string;
     _id?: string;
   };
+  setCustomAllocation?: (allocation: any) => void;
+  onRetakeSurvey?: () => void;
 }
 
 const PortfolioSection: React.FC<PortfolioSectionProps> = ({
@@ -52,14 +54,23 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   onEditInvestment,
   onRiskProfileChange,
   setShowRiskModal,
-  userData
+  userData,
+  setCustomAllocation,
+  onRetakeSurvey
 }) => {
   const [allocation, setAllocation] = useState({...propAllocation});
   const [loading, setLoading] = useState(false);
   const [recommendedFunds, setRecommendedFunds] = useState<Fund[]>([]);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const scrollViewRef = useRef<ScrollView>(null);
-  
+
+  // Handle retake survey
+  const handleRetakeSurvey = () => {
+    if (onRetakeSurvey) {
+      onRetakeSurvey();
+    }
+  };
+
   // Calculate amount for each asset class
   const calculateAmount = (percentage: number) => {
     return (params.amount * percentage) / 100;
@@ -175,21 +186,21 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({
         <View style={styles.riskIndicator}>
           <Text style={styles.riskLabel}>Risk Profile:</Text>
           <View style={[
-            styles.riskBadge, 
-            { 
-              backgroundColor: 
-                params.riskProfile === 'Low' ? '#4CAF50' : 
-                params.riskProfile === 'High' ? '#F44336' : 
+            styles.riskBadge,
+            {
+              backgroundColor:
+                params.riskProfile === 'Low' ? '#4CAF50' :
+                params.riskProfile === 'High' ? '#F44336' :
                 '#FFC107'
             }
           ]}>
             <Text style={styles.riskBadgeText}>{params.riskProfile}</Text>
           </View>
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.changeRiskButton}
-            onPress={() => setShowRiskModal(true)}
+            onPress={() => handleRetakeSurvey()}
           >
-            <Text style={styles.changeRiskText}>Change</Text>
+            <Text style={styles.changeRiskText}>Re-survey</Text>
           </TouchableOpacity>
         </View>
       </View>

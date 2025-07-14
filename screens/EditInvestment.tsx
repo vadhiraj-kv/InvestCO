@@ -12,7 +12,7 @@ import {
 import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-// Define the route params type
+
 type RootStackParamList = {
   EditInvestment: {
     amount: number;
@@ -35,32 +35,32 @@ export default function EditInvestment() {
   const navigation = useNavigation<EditInvestmentNavigationProp>();
   const route = useRoute<EditInvestmentRouteProp>();
   
-  // Get params with proper defaults
+
   const { amount, investmentType, duration, riskProfile } = route.params;
   
-  // Set up state for editable values
+
   const [editedAmount, setEditedAmount] = useState(amount.toString());
   const [editedInvestmentType, setEditedInvestmentType] = useState(investmentType);
   const [editedDuration, setEditedDuration] = useState(duration.toString());
   const [editedRiskProfile, setEditedRiskProfile] = useState(riskProfile);
   
-  // Function to validate and save changes
+
   const saveChanges = () => {
-    // Validate amount
+
     const parsedAmount = parseFloat(editedAmount);
     if (isNaN(parsedAmount) || parsedAmount <= 0) {
       Alert.alert('Invalid Amount', 'Please enter a valid investment amount');
       return;
     }
     
-    // Validate duration for SIP
+    
     const parsedDuration = parseInt(editedDuration);
     if (editedInvestmentType === 'SIP' && (isNaN(parsedDuration) || parsedDuration <= 0)) {
       Alert.alert('Invalid Duration', 'Please enter a valid duration in years');
       return;
     }
     
-    // Navigate back to Dashboard with updated values
+   
     navigation.navigate('Dashboard', {
       amount: parsedAmount,
       investmentType: editedInvestmentType,

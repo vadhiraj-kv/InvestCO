@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useEffect } from 'react';
 import {
   View,
   Text,
@@ -13,6 +13,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import Slider from '@react-native-community/slider';
 import styles from './DashboardStyles';
 import RiskProfileModal from './components/RiskProfileModal';
+
 
 // Import section components
 let PortfolioSectionComponent, MarketNewsSectionComponent, InsightsSectionComponent;
@@ -65,6 +66,31 @@ const Dashboard = () => {
   });
   const [editingAllocation, setEditingAllocation] = useState(null);
   const [showRiskModal, setShowRiskModal] = useState(false);
+  // Use the predicted risk profile from route params (set by survey)
+  const predictedRiskProfile = route.params?.predictedRiskProfile || params.riskProfile || 'Moderate';
+
+  // Check if risk profile was just updated
+  useEffect(() => {
+    if (route.params?.isUpdated) {
+      Alert.alert(
+        '🎯 Risk Profile Updated!',
+        `Your risk profile has been updated to "${predictedRiskProfile}" based on your new survey responses. Your asset allocation has been adjusted accordingly.`,
+        [{ text: 'Got it!', style: 'default' }]
+      );
+    }
+  }, [route.params?.isUpdated]);
+
+  // Handle retake survey
+  const handleRetakeSurvey = () => {
+    // Navigate back to survey with current investment details
+    navigation.navigate('InvestmentSurvey', {
+      userData: userData,
+      isRetake: true,
+      amount: params.amount,
+      investmentType: params.investmentType,
+      duration: params.duration
+    });
+  };
 
   // Get asset allocation based on risk profile
   function getAssetAllocation(riskProfile) {
@@ -86,17 +112,19 @@ const Dashboard = () => {
     if (customAllocation) {
       return customAllocation;
     }
-    
-    // Otherwise, use the default allocation based on risk profile
-    switch(params.riskProfile) {
+
+    // Use ML-predicted risk profile instead of default
+    const riskToUse = predictedRiskProfile || params.riskProfile || 'Moderate';
+
+    switch(riskToUse) {
       case 'Low':
-        return { equity: 20, debt: 50, gold: 20, cash: 10 };
+        return { equity: 30, debt: 50, gold: 15, cash: 5 };
       case 'Moderate':
-        return { equity: 40, debt: 30, gold: 20, cash: 10 };
+        return { equity: 60, debt: 25, gold: 10, cash: 5 };
       case 'High':
-        return { equity: 70, debt: 15, gold: 10, cash: 5 };
+        return { equity: 80, debt: 10, gold: 5, cash: 5 };
       default:
-        return { equity: 40, debt: 30, gold: 20, cash: 10 };
+        return { equity: 60, debt: 25, gold: 10, cash: 5 };
     }
   }
 
@@ -190,8 +218,15 @@ const Dashboard = () => {
                 : `One-time investment for ${params.duration} year${params.duration > 1 ? 's' : ''}`
               }
             </Text>
-            <View style={styles.riskProfileBadge}>
-              <Text style={styles.riskProfileText}>{params.riskProfile} Risk</Text>
+            <View style={styles.riskBadge}>
+              <Text style={styles.riskBadgeText}>
+                {predictedRiskProfile} Risk
+                {route.params?.mlConfidence && (
+                  <Text style={[styles.riskBadgeText, { fontSize: 10, opacity: 0.9 }]}>
+                    {' '}({route.params.mlConfidence}% ML)
+                  </Text>
+                )}
+              </Text>
             </View>
           </View>
         </View>
@@ -261,12 +296,21 @@ const Dashboard = () => {
       case 'Market':
         return <MarketNewsSection />;
       case 'Insights':
-        return <InsightsSection />;
+        return (
+          <InsightsSection
+            userData={userData}
+            params={params}
+            allocation={allocation}
+          />
+        );
       case 'Portfolio':
       default:
         return (
-          <PortfolioSection 
-            params={params}
+          <PortfolioSection
+            params={{
+              ...params,
+              riskProfile: predictedRiskProfile || params.riskProfile
+            }}
             allocation={allocation}
             navigation={navigation}
             handleRecommendationClick={handleRecommendationClick}
@@ -274,6 +318,7 @@ const Dashboard = () => {
             onRiskProfileChange={handleRiskProfileChange}
             setShowRiskModal={setShowRiskModal}
             setCustomAllocation={setCustomAllocation}
+            onRetakeSurvey={handleRetakeSurvey}
           />
         );
     }

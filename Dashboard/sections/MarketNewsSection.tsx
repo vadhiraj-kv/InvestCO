@@ -6,7 +6,9 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Image,
-  FlatList
+  FlatList,
+  Linking,
+  Alert
 } from 'react-native';
 import axios from 'axios';
 
@@ -17,6 +19,7 @@ interface NewsItem {
   source: string;
   date: string;
   imageUrl: string;
+  url: string; // Added URL field for the original article
 }
 
 const MarketNewsSection: React.FC = () => {
@@ -27,85 +30,99 @@ const MarketNewsSection: React.FC = () => {
   const fetchMarketNews = async () => {
     setNewsLoading(true);
     setNewsError(null);
-    
+
     try {
-      const API_KEY = '2ERYE9DMYCK02SJG';
-      const response = await axios.get(
-        `https://www.alphavantage.co/query?function=NEWS_SENTIMENT&topics=financial_markets,economy&apikey=${API_KEY}`
-      );
-      
-      if (response.data && response.data.feed) {
-        const formattedNews = response.data.feed.map((item: any, index: number) => ({
-          id: index.toString(),
-          title: item.title,
-          summary: item.summary,
-          source: item.source,
-          date: new Date(item.time_published).toLocaleDateString(),
-          imageUrl: item.banner_image || 'https://via.placeholder.com/100'
-        }));
-        
-        setMarketNews(formattedNews.slice(0, 10));
-      } else {
-        setNewsError('No news data available');
-        // Fallback data
-        setMarketNews([
-          {
-            id: '1',
-            title: 'RBI Keeps Repo Rate Unchanged at 6.5%',
-            summary: 'The Reserve Bank of India (RBI) maintained the repo rate at 6.5% for the seventh consecutive time, focusing on inflation control.',
-            source: 'Economic Times',
-            date: '2023-06-08',
-            imageUrl: 'https://via.placeholder.com/100'
-          },
-          {
-            id: '2',
-            title: 'Sensex Hits New All-Time High, Crosses 74,000',
-            summary: 'Indian markets reached a new milestone as Sensex crossed 74,000 for the first time, driven by strong FII inflows and positive global cues.',
-            source: 'Business Standard',
-            date: '2023-06-07',
-            imageUrl: 'https://via.placeholder.com/100'
-          },
-          {
-            id: '3',
-            title: 'IT Sector Shows Signs of Recovery as Hiring Increases',
-            summary: 'After a year of layoffs and hiring freezes, the IT sector is showing signs of recovery with major companies resuming campus placements.',
-            source: 'Mint',
-            date: '2023-06-06',
-            imageUrl: 'https://via.placeholder.com/100'
+      // Using RSS2JSON service to parse real financial RSS feeds (no API key required)
+      const rssFeeds = [
+        {
+          url: 'https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms',
+          source: 'Economic Times'
+        },
+        {
+          url: 'https://www.moneycontrol.com/rss/results.xml',
+          source: 'MoneyControl'
+        },
+        {
+          url: 'https://feeds.bloomberg.com/markets/news.rss',
+          source: 'Bloomberg'
+        }
+      ];
+
+      let newsData = null;
+
+      // Try each RSS feed until one works
+      for (const feed of rssFeeds) {
+        try {
+          console.log(`Trying RSS feed: ${feed.source}`);
+          const rssResponse = await axios.get(
+            `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.url)}&count=10`,
+            { timeout: 10000 }
+          );
+
+          if (rssResponse.data && rssResponse.data.items && rssResponse.data.items.length > 0) {
+            newsData = rssResponse.data.items.map((item: any, index: number) => ({
+              id: `${feed.source}-${index}`,
+              title: item.title || 'No title available',
+              summary: item.description
+                ? item.description.replace(/<[^>]*>/g, '').substring(0, 200) + '...'
+                : item.content?.replace(/<[^>]*>/g, '').substring(0, 200) + '...' || 'No description available',
+              source: feed.source,
+              date: item.pubDate ? new Date(item.pubDate).toLocaleDateString() : new Date().toLocaleDateString(),
+              imageUrl: item.thumbnail || item.enclosure?.link || `https://via.placeholder.com/100?text=${feed.source}`,
+              url: item.link || item.guid || ''
+            })).filter(item => item.url && item.title !== 'No title available');
+
+            if (newsData.length > 0) {
+              console.log(`Successfully fetched ${newsData.length} articles from ${feed.source}`);
+              break;
+            }
           }
-        ]);
+        } catch (feedError) {
+          console.log(`Failed to fetch from ${feed.source}:`, feedError.message);
+          continue;
+        }
+      }
+
+      // If RSS feeds fail, try alternative free news API
+      if (!newsData || newsData.length === 0) {
+        try {
+          console.log('RSS feeds failed, trying alternative API...');
+          // Using a free news aggregator API
+          const altResponse = await axios.get(
+            'https://saurav.tech/NewsAPI/top-headlines/category/business/in.json',
+            { timeout: 10000 }
+          );
+
+          if (altResponse.data && altResponse.data.articles) {
+            newsData = altResponse.data.articles.slice(0, 8).map((item: any, index: number) => ({
+              id: `alt-${index}`,
+              title: item.title || 'No title available',
+              summary: item.description || item.content?.substring(0, 200) + '...' || 'No description available',
+              source: item.source?.name || 'Business News',
+              date: item.publishedAt ? new Date(item.publishedAt).toLocaleDateString() : new Date().toLocaleDateString(),
+              imageUrl: item.urlToImage || 'https://via.placeholder.com/100?text=News',
+              url: item.url || ''
+            })).filter(item => item.url);
+
+            console.log(`Fetched ${newsData.length} articles from alternative API`);
+          }
+        } catch (altError) {
+          console.log('Alternative API also failed:', altError.message);
+        }
+      }
+
+      if (newsData && newsData.length > 0) {
+        setMarketNews(newsData);
+        console.log('Successfully loaded real news data');
+      } else {
+        throw new Error('All news sources failed');
       }
     } catch (error) {
       console.error('Error fetching market news:', error);
-      setNewsError('Failed to load market news');
-      
-      // Fallback data
-      setMarketNews([
-        {
-          id: '1',
-          title: 'RBI Keeps Repo Rate Unchanged at 6.5%',
-          summary: 'The Reserve Bank of India (RBI) maintained the repo rate at 6.5% for the seventh consecutive time, focusing on inflation control.',
-          source: 'Economic Times',
-          date: '2023-06-08',
-          imageUrl: 'https://via.placeholder.com/100'
-        },
-        {
-          id: '2',
-          title: 'Sensex Hits New All-Time High, Crosses 74,000',
-          summary: 'Indian markets reached a new milestone as Sensex crossed 74,000 for the first time, driven by strong FII inflows and positive global cues.',
-          source: 'Business Standard',
-          date: '2023-06-07',
-          imageUrl: 'https://via.placeholder.com/100'
-        },
-        {
-          id: '3',
-          title: 'IT Sector Shows Signs of Recovery as Hiring Increases',
-          summary: 'After a year of layoffs and hiring freezes, the IT sector is showing signs of recovery with major companies resuming campus placements.',
-          source: 'Mint',
-          date: '2023-06-06',
-          imageUrl: 'https://via.placeholder.com/100'
-        }
-      ]);
+      setNewsError('Unable to load real-time news. Please check your internet connection and try again.');
+
+      // Only show error, no fallback fake data since user wants real data only
+      setMarketNews([]);
     } finally {
       setNewsLoading(false);
     }
@@ -114,6 +131,52 @@ const MarketNewsSection: React.FC = () => {
   // Add a manual refresh function
   const handleRefreshNews = () => {
     fetchMarketNews();
+  };
+
+  // Function to open article URL
+  const handleNewsItemPress = async (newsItem: NewsItem) => {
+    if (!newsItem.url) {
+      Alert.alert('No Link Available', 'This article does not have a link to the original source.');
+      return;
+    }
+
+    try {
+      const supported = await Linking.canOpenURL(newsItem.url);
+
+      if (supported) {
+        await Linking.openURL(newsItem.url);
+      } else {
+        Alert.alert(
+          'Cannot Open Link',
+          'Unable to open this article. The link may be invalid or your device cannot handle this type of URL.',
+          [
+            {
+              text: 'Copy Link',
+              onPress: () => {
+                // You can add clipboard functionality here if needed
+                Alert.alert('Link', newsItem.url);
+              }
+            },
+            { text: 'OK' }
+          ]
+        );
+      }
+    } catch (error) {
+      console.error('Error opening URL:', error);
+      Alert.alert(
+        'Error',
+        'Failed to open the article. Please try again.',
+        [
+          {
+            text: 'Copy Link',
+            onPress: () => {
+              Alert.alert('Link', newsItem.url);
+            }
+          },
+          { text: 'OK' }
+        ]
+      );
+    }
   };
 
   // Fetch news when component mounts
@@ -128,7 +191,11 @@ const MarketNewsSection: React.FC = () => {
   }, []);
 
   const renderNewsItem = ({ item }: { item: NewsItem }) => (
-    <View style={styles.newsItem}>
+    <TouchableOpacity
+      style={styles.newsItem}
+      onPress={() => handleNewsItemPress(item)}
+      activeOpacity={0.7}
+    >
       <View style={styles.newsContent}>
         <Text style={styles.newsTitle}>{item.title}</Text>
         <Text style={styles.newsSummary} numberOfLines={3}>{item.summary}</Text>
@@ -136,13 +203,17 @@ const MarketNewsSection: React.FC = () => {
           <Text style={styles.newsSource}>{item.source}</Text>
           <Text style={styles.newsDate}>{item.date}</Text>
         </View>
+        {/* Add a visual indicator that the item is clickable */}
+        <View style={styles.clickIndicator}>
+          <Text style={styles.clickIndicatorText}>Tap to read full article →</Text>
+        </View>
       </View>
-      <Image 
-        source={{ uri: item.imageUrl }} 
+      <Image
+        source={{ uri: item.imageUrl }}
         style={styles.newsImage}
         resizeMode="cover"
       />
-    </View>
+    </TouchableOpacity>
   );
 
   return (
@@ -161,12 +232,17 @@ const MarketNewsSection: React.FC = () => {
       {newsLoading ? (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#7F00FF" />
-          <Text style={styles.loadingText}>Loading market news...</Text>
+          <Text style={styles.loadingText}>Loading real-time market news...</Text>
         </View>
-      ) : newsError ? (
+      ) : newsError || marketNews.length === 0 ? (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>{newsError}</Text>
-          <TouchableOpacity 
+          <Text style={styles.errorText}>
+            {newsError || 'No real-time news available at the moment'}
+          </Text>
+          <Text style={styles.errorSubtext}>
+            We only show real, current financial news. Please check your internet connection and try again.
+          </Text>
+          <TouchableOpacity
             style={styles.retryButton}
             onPress={handleRefreshNews}
           >
@@ -236,8 +312,18 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   errorText: {
+    fontSize: 16,
     color: '#e53935',
-    marginBottom: 10,
+    textAlign: 'center',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  errorSubtext: {
+    fontSize: 14,
+    color: '#888',
+    textAlign: 'center',
+    marginBottom: 16,
+    lineHeight: 20,
   },
   retryButton: {
     backgroundColor: '#7F00FF',
@@ -258,6 +344,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow: 'hidden',
     marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 1,
   },
   newsContent: {
     flex: 1,
@@ -290,6 +383,18 @@ const styles = StyleSheet.create({
   newsImage: {
     width: 100,
     height: '100%',
+  },
+  clickIndicator: {
+    marginTop: 8,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: '#e0e0e0',
+  },
+  clickIndicatorText: {
+    fontSize: 12,
+    color: '#7F00FF',
+    fontWeight: '500',
+    fontStyle: 'italic',
   },
 });
 
